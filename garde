@@ -1,3 +1,53 @@
+// import 'package:flutter/material.dart';
+//
+// void main() {
+//   runApp(MyApp());
+// }
+//
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text('Counter App'),
+//         ),
+//         body: Counter(),
+//       ),
+//     );
+//   }
+// }
+//
+// class Counter extends StatefulWidget {
+//   @override
+//   _CounterState createState() => _CounterState();
+// }
+//
+// class _CounterState extends State<Counter> {
+//   int _counter = 0;
+//
+//   void _incrementCounter() {
+//     setState(() {
+//       _counter++;
+//     });
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           Text('Counter: $_counter'),
+//           ElevatedButton(
+//             onPressed: _incrementCounter,
+//             child: Text('Increment'),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 import 'package:flutter/material.dart';
 
 void main() {
@@ -26,23 +76,40 @@ class Counter extends StatefulWidget {
 class _CounterState extends State<Counter> {
   int _counter = 0;
 
+
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
   }
 
+  void _resetCounter() {
+    setState(() {
+      _counter = 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text('Counter: $_counter'),
-        ElevatedButton(
-          onPressed: _incrementCounter,
-          child: Text('Increment'),
-        ),
-      ],
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Counter: $_counter', style: TextStyle(fontSize: 54)),
+          ElevatedButton(
+            onPressed: _incrementCounter,
+            child: Text('Increment'),
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: _resetCounter,
+            child: Text('Reset'),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.pink,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
